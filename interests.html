@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Interests</title>
+    <link rel="stylesheet" href="css/mystyles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="dusty-blue-bg">
+    <a id="top"></a>
+    <!-- Anchor point at top -->
+    <h1 style="text-align: center">My Interests</h1>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container px-5">
+        <a class="navbar-brand" href="index.html"
+          ><span class="fw-bolder text-primary">Home</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="app.html">App</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interests.html">Interests</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- DIV for UL styling -->
+    <div class="bullet-style">
+      <ul class="between-items-spacing">
+        <li>
+          Rock Climbing <br /><img
+            src="assets/RockClimbingPhoto.jpg"
+            alt="Rock Climbing Photo"
+            width="200"
+          />
+        </li>
+
+        <li>
+          Hiking <br />My Favorite Hikes:
+          <!-- DIV for hiking photos -->
+          <div class="hiking-photos">
+            <ol>
+              <li>
+                Canyonlands <br /><img
+                  src="assets/Canyonlands.jpg"
+                  alt="Photo of Canyonlands"
+                />
+              </li>
+              <li>
+                The Narrows <br /><img
+                  src="assets/the narrows.jpg"
+                  alt="Photo of The Narrows"
+                />
+              </li>
+              <li>
+                Mt. Timpanogos <br /><img
+                  src="assets/Mt. Timpanogos.png"
+                  alt="Photo of Mt. Timpanogos"
+                />
+              </li>
+            </ol>
+          </div>
+        </li>
+
+        <li>
+          Dancing <br />
+          <!-- DIV for video styling -->
+          <div class="video-wrapper">
+            <iframe
+              width="200"
+              height="355.6"
+              src="https://www.youtube.com/embed/t6PvC-IUiqw?loop=1&playlist=t6PvC-IUiqw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </li>
+
+        <li>
+          Napping
+          <br /><img
+            src="assets/napping.png"
+            alt="Photo of Napping"
+          /><br />When can I take a nap? <br />
+          <!-- Tableau calendar -->
+          <div
+            class="tableauPlaceholder"
+            id="viz1765935765327"
+            style="position: relative"
+          >
+            <noscript
+              ><a href="#"
+                ><img
+                  alt=" "
+                  src="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DanceCalendarMock_17658521311720&#47;CustomCalendar&#47;1_rss.png"
+                  style="border: none" /></a></noscript
+            ><object class="tableauViz" style="display: none">
+              <param
+                name="host_url"
+                value="https%3A%2F%2Fpublic.tableau.com%2F"
+              />
+              <param name="embed_code_version" value="3" />
+              <param name="site_root" value="" />
+              <param
+                name="name"
+                value="DanceCalendarMock_17658521311720&#47;CustomCalendar"
+              />
+              <param name="tabs" value="yes" />
+              <param name="toolbar" value="yes" />
+              <param
+                name="static_image"
+                value="https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Da&#47;DanceCalendarMock_17658521311720&#47;CustomCalendar&#47;1.png"
+              />
+              <param name="animate_transition" value="yes" />
+              <param name="display_static_image" value="yes" />
+              <param name="display_spinner" value="yes" />
+              <param name="display_overlay" value="yes" />
+              <param name="display_count" value="yes" />
+              <param name="language" value="en-US" />
+            </object>
+          </div>
+          <script type="text/javascript">
+            var divElement = document.getElementById("viz1765935765327");
+            var vizElement = divElement.getElementsByTagName("object")[0];
+            vizElement.style.width = "1600px";
+            vizElement.style.height = "1200px";
+            var scriptElement = document.createElement("script");
+            scriptElement.src =
+              "https://public.tableau.com/javascripts/api/viz_v1.js";
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+          </script>
+        </li>
+        <p style="text-align: center; margin-top: 20px">
+          <a href="#top" class="back-to-top">Back to Top ↑</a>
+        </p>
+      </ul>
+    </div>
+  </body>
+</html>

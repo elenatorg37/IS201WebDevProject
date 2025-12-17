@@ -1,0 +1,115 @@
+/* -------------------------------
+Dusty blue background 
+--------------------------------*/
+.dusty-blue-bg {
+  background-color: #c1d1e0;
+}
+
+/* -------------------------------
+   Global Font and Color
+--------------------------------*/
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Verdana, sans-serif;
+  color: #08335c;
+}
+
+/* -------------------------------
+   UL Bullet Points
+--------------------------------*/
+.bullet-style ul.between-items-spacing {
+  list-style-type: disc; /* standard bullets */
+  padding-left: 25px; /* space for bullets */
+  font-weight: bold; /* bold text */
+  font-size: 20px; /* bigger text, bullets grow with text */
+}
+
+.bullet-style ul.between-items-spacing > li {
+  margin-bottom: 15px; /* space between items */
+}
+
+/* -------------------------------
+   Hiking Photos as Circles (OL horizontal)
+--------------------------------*/
+.hiking-photos ol {
+  display: flex; /* make list horizontal */
+  gap: 20px; /* space between items */
+  padding-left: 0; /* remove default ol padding */
+  list-style-type: decimal; /* keep numbers */
+  font-weight: normal; /* normal text */
+  font-size: 16px; /* normal size */
+}
+
+.hiking-photos ol li {
+  text-align: center; /* center text under each image */
+}
+
+.hiking-photos ol li img {
+  border-radius: 50%; /* circular images */
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* -------------------------------
+   Video Styling
+--------------------------------*/
+.video-wrapper {
+  display: inline-block;
+  margin-top: 20px;
+  border: 3px solid #333; /* dark border */
+  border-radius: 15px; /* rounded corners */
+  overflow: hidden; /* ensures video corners follow div rounding */
+}
+
+.video-wrapper iframe {
+  display: block;
+  border: none;
+  border-radius: 15px; /* ensures iframe itself has rounded corners */
+}
+
+/* -------------------------------
+   Back to Top Button
+--------------------------------*/
+.back-to-top {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #c1d8af; /* button color */
+  color: #000000; /* text color */
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px; /* rounded corners */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-to-top:hover {
+  background-color: #82a06b; /* darker on hover */
+  transform: translateY(-2px); /* subtle lift effect */
+}
+
+/* -------------------------------
+   Top Page Link (smaller, matches bottom button)
+--------------------------------*/
+.top-link {
+  display: inline-block;
+  margin: 20px auto; /* spacing around link */
+  padding: 10px 20px; /* same as bottom button */
+  background-color: #c1d8af; /* green button color */
+  color: #fff; /* white text */
+  font-weight: bold;
+  font-size: 16px; /* match bottom button font size */
+  text-decoration: none;
+  border-radius: 8px; /* match bottom button corners */
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.top-link:hover {
+  background-color: #82a06b; /* darker green on hover */
+  transform: translateY(-2px); /* subtle lift effect */
+}
+
+/* center button */
+body .top-link {
+  display: inline-block;
+  text-align: center;
+}

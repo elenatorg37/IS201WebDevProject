@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Which Christmas Character Are You?</title>
+    <!-- Bootstrap CSS (if not already included in your site) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f2f2f2;
+        padding: 50px 20px;
+      }
+      #quiz-container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 30px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      button {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #ff1a1a;
+      }
+      .option {
+        display: block;
+        margin: 10px 0;
+      }
+      #restartBtn {
+        display: none;
+        margin-top: 20px;
+      }
+      #result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <div class="container px-5">
+        <a class="navbar-brand" href="index.html"
+          ><span class="fw-bolder text-primary">Home</span></a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="app.html">App</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="interests.html">Interests</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Quiz Container -->
+    <div id="quiz-container">
+      <h1>Which Christmas Character Are You?</h1>
+      <div id="question"></div>
+      <div id="options"></div>
+      <button id="nextBtn" style="display: none">Next</button>
+      <div id="result"></div>
+      <button id="restartBtn">Play Again</button>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Quiz Script -->
+    <script>
+      const questions = [
+        {
+          question: "What's your favorite holiday activity?",
+          options: [
+            { text: "Decorating the tree", value: "Elf" },
+            { text: "Eating cookies", value: "Santa" },
+            { text: "Spreading cheer", value: "Rudolph" },
+            { text: "Playing in the snow", value: "Frosty" },
+          ],
+        },
+        {
+          question: "Pick a Christmas treat:",
+          options: [
+            { text: "Candy cane", value: "Elf" },
+            { text: "Hot cocoa", value: "Frosty" },
+            { text: "Gingerbread", value: "Santa" },
+            { text: "Carrot sticks", value: "Rudolph" },
+          ],
+        },
+        {
+          question: "What’s your personality?",
+          options: [
+            { text: "Cheerful and playful", value: "Elf" },
+            { text: "Warm and jolly", value: "Santa" },
+            { text: "Helpful and loyal", value: "Rudolph" },
+            { text: "Cool and fun", value: "Frosty" },
+          ],
+        },
+        {
+          question: "Choose a Christmas color:",
+          options: [
+            { text: "Red & Green", value: "Santa" },
+            { text: "Silver & Blue", value: "Frosty" },
+            { text: "Green & Gold", value: "Elf" },
+            { text: "Red & White", value: "Rudolph" },
+          ],
+        },
+        {
+          question: "Your ideal gift is:",
+          options: [
+            { text: "A fun gadget", value: "Elf" },
+            { text: "A warm scarf", value: "Frosty" },
+            { text: "A big surprise", value: "Santa" },
+            { text: "Something personal", value: "Rudolph" },
+          ],
+        },
+        {
+          question: "How do you help others?",
+          options: [
+            { text: "By making them laugh", value: "Elf" },
+            { text: "By delivering gifts", value: "Santa" },
+            { text: "By guiding the way", value: "Rudolph" },
+            { text: "By being cool and calm", value: "Frosty" },
+          ],
+        },
+        {
+          question: "Your holiday style:",
+          options: [
+            { text: "Playful and colorful", value: "Elf" },
+            { text: "Classic & cozy", value: "Santa" },
+            { text: "Sparkly & cheerful", value: "Rudolph" },
+            { text: "Snowy & calm", value: "Frosty" },
+          ],
+        },
+      ];
+
+      let currentQuestion = 0;
+      let scores = { Elf: 0, Santa: 0, Rudolph: 0, Frosty: 0 };
+
+      const questionEl = document.getElementById("question");
+      const optionsEl = document.getElementById("options");
+      const nextBtn = document.getElementById("nextBtn");
+      const restartBtn = document.getElementById("restartBtn");
+      const resultEl = document.getElementById("result");
+
+      restartBtn.style.display = "none"; // hide initially
+
+      function loadQuestion() {
+        const q = questions[currentQuestion];
+        questionEl.textContent = q.question;
+        optionsEl.innerHTML = "";
+        resultEl.textContent = "";
+        q.options.forEach((option) => {
+          const btn = document.createElement("button");
+          btn.textContent = option.text;
+          btn.classList.add("option");
+          btn.onclick = () => selectOption(option.value);
+          optionsEl.appendChild(btn);
+        });
+        nextBtn.style.display = "none";
+      }
+
+      function selectOption(value) {
+        scores[value]++;
+        nextBtn.style.display = "inline-block";
+        Array.from(optionsEl.children).forEach((btn) => (btn.disabled = true));
+      }
+
+      nextBtn.onclick = () => {
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          loadQuestion();
+        } else {
+          showResult();
+        }
+      };
+
+      function showResult() {
+        questionEl.textContent = "Your Christmas Character is:";
+        optionsEl.style.display = "none";
+        nextBtn.style.display = "none";
+        const maxScore = Math.max(...Object.values(scores));
+        const winner = Object.keys(scores).find(
+          (key) => scores[key] === maxScore
+        );
+        resultEl.textContent = winner;
+        restartBtn.style.display = "inline-block"; // appears below result
+      }
+
+      restartBtn.onclick = () => {
+        currentQuestion = 0;
+        scores = { Elf: 0, Santa: 0, Rudolph: 0, Frosty: 0 };
+        optionsEl.style.display = "block";
+        restartBtn.style.display = "none";
+        loadQuestion();
+      };
+
+      loadQuestion();
+    </script>
+  </body>
+</html>
